@@ -22,7 +22,7 @@ public class linkedList {
 
     public void addFirst(String data) {
         Node newNode = new Node(data);
-        if(head == null) {
+        if(head == null) { // CORNER CASE
             head = newNode;
             return;
         }
