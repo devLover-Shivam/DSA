@@ -7,7 +7,7 @@ public class leftRotateDPlaces {
         d= d%n; //effective number of rotations
 
        
-        /* BRUTE FORCE APPROACH
+        // BRUTE FORCE APPROACH
         
         int[] temp = new int[d];
 
@@ -24,8 +24,28 @@ public class leftRotateDPlaces {
         for (int i = n-d; i < n; i++) {
             a[i] = temp[i-(n-d)];
         }
- */
 
+    }
+    
+    //OPTIMAL WAY FOR ROTATING THE ARRAY BY D PLACES TO THE LEFT.
+    public static void reverse(int a[],int sp, int ep){
+        while(sp<ep){
+                int temp = a[sp];
+                a[sp] = a[ep];
+                a[ep] = temp;
+                sp++;
+                ep--;
+            }
+    }
+
+    public static void leftRotateUsingReversal(int a[],int n,int d){
+        if (n == 0) return;
+        d = d % n;
+        if (d < 0) d += n;
+        // reverse first d, then remaining, then whole array
+        reverse(a, 0, d - 1);
+        reverse(a, d, n - 1);
+        reverse(a, 0, n - 1);
     }
 
     public static void main(String[] args) {
@@ -40,7 +60,7 @@ public class leftRotateDPlaces {
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
-        leftRotate(a, n, d);
+        leftRotateUsingReversal(a, n, d);
         System.out.println("After rotation array is: ");
         for (int i = 0; i < n; i++) {
             System.out.print(a[i]+" ");
