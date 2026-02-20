@@ -16,6 +16,27 @@ public class findNUmberOccuringOnce {
         return XOR1;
     }
     
+    public static int bruteForce(int a[], int n){
+
+    for (int i = 0; i < n; i++) {
+
+        int cnt = 0;
+        int num = a[i];
+
+        for (int j = 0; j < n; j++) {
+            if (a[j] == num) {
+                cnt++;
+            }
+        }
+
+        if (cnt == 1) {
+            return num;
+        }
+    }
+
+    return -1;   
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -25,7 +46,8 @@ public class findNUmberOccuringOnce {
             a[i] = sc.nextInt();
         }
 
-        int ans = optimalWay(a,n);
+        /* int ans = optimalWay(a,n); */
+        int ans = bruteForce(a, n);
         System.out.println("Element that appears only once = "+ans);
     }
 }
