@@ -28,5 +28,11 @@ public class convertArray2LL {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
         System.out.println(head.data);
+        //TRAVERSAL IN A LINKED LIST
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data+" ");
+            temp = temp.next;
+        }
     }
 }
