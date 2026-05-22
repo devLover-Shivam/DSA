@@ -43,18 +43,28 @@ public class convertArray2LL {
         }
        return false; 
     }
-    public static void main(String[] args) {
-        int arr []={2,3,4,5};
-        Node head = convertArr2LL(arr);
-        System.out.println(head.data);
-        //TRAVERSAL IN A LINKED LIST
+        // TRAVERSAL
+    private static void printLL(Node head) {
         Node temp = head;
-        while(temp != null){
-            System.out.print(temp.data+" ");
+
+        while (temp != null) {
+            System.out.print(temp.data + " ");
             temp = temp.next;
         }
 
-        System.out.println(lengthofLL(head));
-        System.out.println(checkPresent(head, 5));
+        System.out.println();
+    }
+    //DELETE THE HEAD OF THE LINKED LIST
+    private static Node removesHead(Node head){
+        if(head==null) return head;
+        head = head.next;
+        return head;
+    }
+    public static void main(String[] args) {
+        int arr []={2,3,4,5};
+        Node head = convertArr2LL(arr);
+        
+        head = removesHead(head);
+        printLL(head);
     }
 }
