@@ -24,6 +24,16 @@ public class convertArray2LL {
         }
         return head;
     }
+    //  FINDING LENGTH OF A LINKED LIST
+    private static int lengthofLL(Node head){
+        int cnt =0;
+        Node temp = head;
+        while(temp!=null){
+            temp = temp.next;
+            cnt++;
+        }
+        return cnt;
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
@@ -34,5 +44,8 @@ public class convertArray2LL {
             System.out.print(temp.data+" ");
             temp = temp.next;
         }
+
+        System.out.println(lengthofLL(head));
+
     }
 }
