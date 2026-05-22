@@ -34,6 +34,15 @@ public class convertArray2LL {
         }
         return cnt;
     }
+    //SEARCH IN LINKED LIST
+    private static boolean checkPresent(Node head,int val){
+        Node temp = head;
+        while(temp != null){
+            if(temp.data == val) return true;
+            temp = temp.next;
+        }
+       return false; 
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
@@ -46,6 +55,6 @@ public class convertArray2LL {
         }
 
         System.out.println(lengthofLL(head));
-
+        System.out.println(checkPresent(head, 5));
     }
 }
