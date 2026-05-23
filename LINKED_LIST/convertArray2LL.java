@@ -71,13 +71,36 @@ public class convertArray2LL {
         temp.next = null;
         return head;
     }
+    //REMOVE ANY ELEMENT AT THE KTH POSITION FROM A LINKED LIST
+    private static Node removesK(Node head, int k){
+        if(k==1){
+            Node temp = head;
+            head= head.next;
+            return head;
+        }
+        int cnt=0;
+        Node temp = head;
+        Node prev = null;
+        while (temp!=null) {
+            cnt++;
+            if(cnt == k){
+                prev.next = prev.next.next;
+                //delete temp;
+                break;
+            }
+            prev = temp;
+            temp =  temp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
         
         /* head = removesHead(head);
         printLL(head); */
-        head= removesTail(head);
+        /* head= removesTail(head); */
+        head = removesK(head, 5);
         printLL(head);
     }
 }
