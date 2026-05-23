@@ -73,6 +73,7 @@ public class convertArray2LL {
     }
     //REMOVE ANY ELEMENT AT THE KTH POSITION FROM A LINKED LIST
     private static Node removesK(Node head, int k){
+        if(head == null) return head;
         if(k==1){
             Node temp = head;
             head= head.next;
@@ -93,6 +94,26 @@ public class convertArray2LL {
         }
         return head;
     }
+
+    // REOMOVE AN ELEMENT FROM THE LINKED LIST BY ITS VALUE.
+    private static Node removeEl(Node head, int val){
+        if(head == null) return head;
+        if(head.data == val){
+            head=head.next;
+            return head;
+        }
+        Node temp = head;
+        Node prev = null;
+        while(temp !=null){
+            if(temp.data == val){
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
@@ -100,7 +121,8 @@ public class convertArray2LL {
         /* head = removesHead(head);
         printLL(head); */
         /* head= removesTail(head); */
-        head = removesK(head, 5);
+        /* head = removesK(head, 5); */
+        head = removeEl(head,3);
         printLL(head);
     }
 }
