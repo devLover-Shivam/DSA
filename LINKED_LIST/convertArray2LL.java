@@ -60,11 +60,24 @@ public class convertArray2LL {
         head = head.next;
         return head;
     }
+
+    //REMOVE THE TAIL OF THE LINKED LIST.
+    private static Node removesTail(Node head){
+        if(head == null || head.next == null) return null;
+        Node temp = head;
+        while(temp.next.next !=null){
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
         
-        head = removesHead(head);
+        /* head = removesHead(head);
+        printLL(head); */
+        head= removesTail(head);
         printLL(head);
     }
 }
