@@ -114,10 +114,21 @@ public class convertArray2LL {
         }
         return head;
     }
-
+    //INSERTION AT HEAD
     private static Node insertHead(Node head,int val){
         Node temp = new Node(val,head);
         return temp;
+    }
+    //INSERTION AT TAIL
+    private static Node insertTail(Node head, int val){
+        if(head == null) return new Node(val);
+        Node temp =  head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        Node newNode = new Node(val);
+        temp.next = newNode;
+        return head;
     }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
@@ -128,7 +139,8 @@ public class convertArray2LL {
         /* head= removesTail(head); */
         /* head = removesK(head, 5); */
         /* head = removeEl(head,3); */
-        head =  insertHead(head, 0);
+        /* head =  insertHead(head, 0); */
+        head = insertTail(head, 0);
         printLL(head);
     }
 }
