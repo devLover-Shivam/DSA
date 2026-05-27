@@ -151,6 +151,13 @@ public class DLL {
         return head;
     }
 
+    private static void insertBeforeNode(Node node,int val){
+        Node prev = node.back;
+        Node newNode = new Node(val,node,prev);
+        prev.next = newNode;
+        node.back = newNode;
+    }
+
     public static void main(String[] args) {
         int arr[] = {10,20,30,40};
         Node head= convertArrToDLL(arr);
@@ -160,7 +167,8 @@ public class DLL {
         /* removeNode(head.next.next); */
         /* head = insertionBeforeHead(head, 19); */
         /* head = insertionBeforeTail(head, 19); */
-        head = insertBeforeKthElement(head, 2,19);
+        /* head = insertBeforeKthElement(head, 2,19); */
+        insertBeforeNode(head.next, 0);
         printDLL(head);
     }
 }
