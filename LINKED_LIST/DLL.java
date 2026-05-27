@@ -110,7 +110,12 @@ public class DLL {
         temp.next = temp.back = null;
     }
 
-    
+    //Insertion before head.
+    private static Node insertionBeforeHead(Node head, int val){
+        Node newHead = new Node(val,head,null);
+        head.back = newHead;
+        return newHead;
+    }
 
     public static void main(String[] args) {
         int arr[] = {10,20,30,40};
@@ -119,6 +124,7 @@ public class DLL {
         /* head = removeTail(head); */
         /* head = removeKthElement(head, 4); */
         /* removeNode(head.next.next); */
+        head = insertionBeforeHead(head, 19);
         printDLL(head);
     }
 }
