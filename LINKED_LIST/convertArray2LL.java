@@ -157,6 +157,25 @@ public class convertArray2LL {
         }
         return head;
     }
+    //INSERT AN ELEMENT BEFORE X
+    private static Node insertBeforeVal(Node head, int val, int x){
+        if(head == null) return null;//as is the ll is empty there'll be no value present there before which an element should be placed.
+       if(head.data == x){
+        return new Node(val,head);
+       }   
+
+       Node temp = head;
+       while (temp.next!=null) {
+        if (temp.next.data == x) {
+            Node y = new Node(val,temp.next);
+            temp.next = y;
+            break;
+        }
+        temp= temp.next;
+       }
+       return head;
+
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
@@ -168,7 +187,8 @@ public class convertArray2LL {
         /* head = removeEl(head,3); */
         /* head =  insertHead(head, 0); */
         /* head = insertTail(head, 0); */
-        head = insertPosition(head, 0, 3);
+        /* head = insertPosition(head, 0, 3); */
+        head = insertBeforeVal(head, 100, 5);
         printLL(head);
     }
 }
