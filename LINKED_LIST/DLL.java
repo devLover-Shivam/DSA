@@ -94,12 +94,31 @@ public class DLL {
         
     }
 
+    //Deleting a node from DLL where NOde != HEad.
+    private static void removeNode(Node temp){
+        
+        Node prev = temp.back;
+        Node front = temp.next;
+
+        if(front == null) {
+            prev.next = null;
+            temp.back = null;
+            return;
+        }
+        prev.next = front;
+        front.back = prev;
+        temp.next = temp.back = null;
+    }
+
+    
+
     public static void main(String[] args) {
         int arr[] = {10,20,30,40};
         Node head= convertArrToDLL(arr);
         /* head = removeHead(head); */
         /* head = removeTail(head); */
-        head = removeKthElement(head, 4);
+        /* head = removeKthElement(head, 4); */
+        /* removeNode(head.next.next); */
         printDLL(head);
     }
 }
