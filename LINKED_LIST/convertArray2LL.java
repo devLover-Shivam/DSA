@@ -130,6 +130,33 @@ public class convertArray2LL {
         temp.next = newNode;
         return head;
     }
+
+    // INSERTION AT ANY POSITION K IN A LINKED LIST.
+    private static Node insertPosition(Node head, int val, int k){
+        if(head == null){
+            if(k==1){
+                return new Node(val);
+            }
+            else return head;
+        }
+
+        if(k==1){
+             return new Node(val,head);
+        }
+        int cnt =0;
+        Node temp = head;
+        while(temp != null){
+            cnt++;
+            if(cnt == k-1){
+                Node x = new Node(val,temp.next);
+                temp.next=x;
+                break;
+
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         int arr []={2,3,4,5};
         Node head = convertArr2LL(arr);
@@ -140,7 +167,8 @@ public class convertArray2LL {
         /* head = removesK(head, 5); */
         /* head = removeEl(head,3); */
         /* head =  insertHead(head, 0); */
-        head = insertTail(head, 0);
+        /* head = insertTail(head, 0); */
+        head = insertPosition(head, 0, 3);
         printLL(head);
     }
 }
