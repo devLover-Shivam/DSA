@@ -16,6 +16,7 @@ class Node{
     }
 }
 public class DLL {
+    //Converting Array to DLL
     private static Node convertArrToDLL(int arr[]){
         Node head = new Node(arr[0]);
         Node prev = head;
@@ -26,7 +27,7 @@ public class DLL {
         }
         return head;
     }
-
+    //Printing the DLL
     private static void printDLL(Node head){
         Node temp = head;
         while(temp!=null){
@@ -36,9 +37,22 @@ public class DLL {
         System.out.println();
     }
 
+    //Removing head of a DLL.
+    private static Node removeHead(Node head){
+        if(head == null || head.next == null) return null;
+
+        Node prev = head;
+        head = head.next;
+        head.back = null;
+        prev.next = null;
+        
+        return head;
+    }
+
     public static void main(String[] args) {
         int arr[] = {1,2,3,4};
         Node head= convertArrToDLL(arr);
+        head = removeHead(head);
         printDLL(head);
     }
 }
