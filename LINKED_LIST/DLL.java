@@ -49,10 +49,24 @@ public class DLL {
         return head;
     }
 
+    //Removing tail of a DLL
+    private static Node removeTail(Node head){
+        if(head == null || head.next == null) return null;
+        Node tail = head;
+        while(tail.next != null){
+            tail = tail.next;            
+        }
+        Node prev = tail.back;
+            prev.next = null;
+            tail.back = null;
+        return head;
+    }
+
     public static void main(String[] args) {
         int arr[] = {1,2,3,4};
         Node head= convertArrToDLL(arr);
-        head = removeHead(head);
+        /* head = removeHead(head); */
+        head = removeTail(head);
         printDLL(head);
     }
 }
