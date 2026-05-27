@@ -62,11 +62,44 @@ public class DLL {
         return head;
     }
 
+    //Removing the node present at Kth position
+    private static Node removeKthElement(Node head,int k){
+        if(head == null) return null;
+        Node temp = head;
+        int cnt =0;
+        //moving the temp pointer
+        while(temp!=null){
+            cnt++;
+            if(cnt == k) break;
+            temp = temp.next;
+        }
+        Node prev = temp.back;
+        Node front = temp.next;
+
+        //Defining the edge cases
+        //1st. if single node is present in doubly ll.
+        if(prev == null && front == null) return null;
+        //2nd. we're standing at the 1st position
+        else if(prev == null) return removeHead(head);
+        //3rd. we're standing at the 2nd position
+        else if(front == null) return removeTail(head);
+        // now removing a node from kth position
+        
+        prev.next = front;
+        front.back = prev;
+        temp.next = null;
+        temp.back = null;
+
+        return head;
+        
+    }
+
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4};
+        int arr[] = {10,20,30,40};
         Node head= convertArrToDLL(arr);
         /* head = removeHead(head); */
-        head = removeTail(head);
+        /* head = removeTail(head); */
+        head = removeKthElement(head, 4);
         printDLL(head);
     }
 }
