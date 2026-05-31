@@ -12,7 +12,7 @@ public class printNumber {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the last number: ");
         int n = sc.nextInt();
-        printNumbers(1, n);
+        printNumbers(0, n);
     }
     
 }

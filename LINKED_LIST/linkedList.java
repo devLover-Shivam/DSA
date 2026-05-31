@@ -43,7 +43,7 @@ public class linkedList {
         }
 
         Node currNode = head;
-        while(currNode.next != null) {//jab tak next node exist karta hai, aage badhte raho. //currNode tab tak traverse karega jab tak null na mil jaae.
+        while(currNode.next != null) {//currNode tab tak traverse karega jab tak null na mil jaae.
             currNode = currNode.next;
         }
 
