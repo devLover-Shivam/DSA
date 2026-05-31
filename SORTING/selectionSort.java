@@ -17,7 +17,7 @@ public class selectionSort {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.err.print("Enter the size of the array: ");
+        System.out.print("Enter the size of the array: ");
         int n = sc.nextInt();
         int arr[] = new int[n];
         System.out.print("Enter "+n+" elements: ");
