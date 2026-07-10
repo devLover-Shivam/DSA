@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -76,5 +77,35 @@ public class Main {
     //contains = checks whether a given element is present inside a list or not
 
     System.out.println(arr.contains(202));
+
+    list.add(550);
+    list.add(66);
+    System.out.println(list);
+
+    //.sort = sort the elements present inside the array in ascending order.
+
+    Collections.sort(list);
+     System.out.println("Sorted ArrayList "+list);
+
+    //.clone =  makes A SHALLOW COPY of one list into another list
+
+    ArrayList<Integer> newList = (ArrayList<Integer>)list.clone();
+    System.out.println("New lIst "+ newList);
+
+    //ensureCapacity = specifies the total element the array list can contain
+
+    // it helps in determining a fixed capacity as varying capacities frequently effects the performance
+    ArrayList<Integer> marks = new ArrayList<>();
+    marks.ensureCapacity(100);
+
+    //isEmpty = checks whether an array list is empty or not? returns true if empty.
+
+    System.out.println(marks.isEmpty());
+
+    //indexOf = searches a specific element and returns its index in the arrayList.
+
+    
+
+    
     }   
 }
